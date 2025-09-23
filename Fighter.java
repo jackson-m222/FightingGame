@@ -5,6 +5,7 @@ public class Fighter {
     private String name;
     private int healthPoints;
     private int attackDamage;
+    private int damageDealt;
     private Random rng;
 
     public Fighter() {
@@ -21,7 +22,7 @@ public class Fighter {
         rng = new Random();
     }
 
-    public int getDamage() {
+    public int getAttackDamage() {
         return attackDamage;
     }
 
@@ -34,9 +35,9 @@ public class Fighter {
     }
 
     public int dealDamage() {
-        attackDamage = rng.nextInt(attackDamage) + 1;
-        System.out.println(name + " deals " + attackDamage + " damage.");
-        return attackDamage;
+        damageDealt = rng.nextInt(attackDamage) + 1;
+        System.out.println(name + " deals " + damageDealt + " damage.");
+        return damageDealt;
     }
 
     public void takeDamage(int amount) {
