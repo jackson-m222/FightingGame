@@ -7,5 +7,12 @@ public class Main {
         battle1.swapFighters();
         battle1.takeTurn();
 
+        battle1.printRoundUpdate();
+        battle1.swapFighters();
+        battle1.takeTurn();
+
+        battle1.printRoundUpdate();
+        battle1.swapFighters();
+        battle1.takeTurn();
     }
 }

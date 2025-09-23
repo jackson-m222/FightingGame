@@ -42,5 +42,6 @@ public class Fighter {
     public void takeDamage(int amount) {
         healthPoints = healthPoints - amount;
         System.out.println(name + " was attacked. Now has " + healthPoints + " health.");
+        System.out.println(" ");
     }
 }

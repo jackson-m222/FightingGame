@@ -39,5 +39,6 @@ public class Battle {
         System.out.println("Round " + numRounds);
         System.out.println("-------");
         System.out.println(attacker.getName() + ": " + attacker.getHealthPoints() + "   " + defender.getName() + ": " + defender.getHealthPoints());
+
     }
 }
