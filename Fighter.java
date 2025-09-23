@@ -23,7 +23,7 @@ public class Fighter
         attackDamage = dmg1;
     }
 
-    public int getDamage() {
+    public int getAttackDamage() {
         return attackDamage;
     }
 
@@ -31,7 +31,7 @@ public class Fighter
         return name;
     }
 
-    public int getHealth() {
+    public int getHealthPoints() {
         return healthPoints;
     }
 
