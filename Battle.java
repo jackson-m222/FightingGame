@@ -1,3 +1,6 @@
+/**
+ * This class creates the commands for the battle to actually run
+ */
 import java.util.Scanner;
 
 public class Battle {
@@ -5,9 +8,14 @@ public class Battle {
     private Fighter defender;
     private int numRounds;
     private Fighter placeholder;
+    private boolean battleOver = false;
 
     Scanner scan = new Scanner(System.in);
-
+    /**
+     * Constructor that assigns the fighters who's turn it is to attack
+     * @param fighter1 Player 1
+     * @param fighter2 Player 2
+     */
     public Battle(Fighter fighter1, Fighter fighter2) {
         attacker = fighter1;
         defender = fighter2;
@@ -22,6 +30,9 @@ public class Battle {
         return defender;
     }
 
+    /**
+     * Everything that lets the player use their turn from healing, attacking or nothing
+     */
     public void takeTurn() {
         System.out.println(attacker.getName() + ", would you like to attack or heal?: ");
         String choice = scan.nextLine();
@@ -29,6 +40,9 @@ public class Battle {
         if (choice.equals("attack")) {
             int amount = attacker.dealDamage();
             defender.takeDamage(amount);
+            if (defender.getHealthPoints() <= 0) {
+                battleOver = true;
+            }
         }
         else if (choice.equals("heal")) {
             attacker.heal();
@@ -42,6 +56,9 @@ public class Battle {
         numRounds++;
     }
 
+    /**
+     * Message that signals that the game has started and the announces the names of the two fighters
+     */
     public void printStartInfo() {
         System.out.println("Welcome to a fight between " + attacker.getName() + " and " + defender.getName() + "!" );
         System.out.println(attacker);
@@ -53,12 +70,20 @@ public class Battle {
         return numRounds;
     }
 
+    /**
+     * Swaps the turn of the two fighters after a round has concluded. 
+     * The placeholder is here so both players don't have the same tags.
+     */
     public void swapFighters() {
         placeholder = attacker;
         attacker = defender;
         defender = placeholder;
     }
 
+    /**
+     * Message that prints after a round ends
+     * Updates the users on the fighters health and which round they are on
+     */
     public void printRoundUpdate() {
         System.out.println("Round " + numRounds);
         System.out.println("-------");
@@ -66,6 +91,11 @@ public class Battle {
 
     }
 
+    /**
+     * Announces that the game has ended
+     * Decides which fighter won based on how much health each fighter had at the end
+     * The fighter with more health wins
+     */
     public void printEndInfo() {
         System.out.println("Battle Over!");
         System.out.println(attacker.getName() + ": " + attacker.getHealthPoints() + "     " + defender.getName() + ": " + defender.getHealthPoints());
@@ -79,5 +109,9 @@ public class Battle {
         else {
             System.out.println("Tie!");
         }
+    }
+
+    public boolean getBattleOverStatus() {
+        return battleOver;
     }
 }
