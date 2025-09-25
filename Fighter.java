@@ -89,7 +89,7 @@ public class Fighter {
      * @return
      */
     public int heal() {
-        healthHealed = rng.nextInt(healAmount);
+        healthHealed = rng.nextInt(healAmount) + 1;
         healthPoints = healthPoints + healthHealed;
         System.out.println(name + " healed " + healthHealed + " health. Now has " + healthPoints + " health");
         System.out.println(" ");
