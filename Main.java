@@ -9,7 +9,7 @@ public class Main {
         Battle battle1 = new Battle(player1, player2);
 
         battle1.printStartInfo();
-        while (battle1.getBattleOverStatus() == false) {
+        while (battle1.getBattleOver() == false) {
             battle1.printRoundUpdate();
             battle1.takeTurn();
             battle1.swapFighters();

@@ -111,7 +111,7 @@ public class Battle {
         }
     }
 
-    public boolean getBattleOverStatus() {
+    public boolean getBattleOver() {
         return battleOver;
     }
 }
