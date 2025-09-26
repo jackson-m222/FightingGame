@@ -9,7 +9,7 @@ public class Fighter {
     private int healAmount;    
     
     public Fighter() {
-        String name = "Bobby";
+        name = "Bobby";
         healthPoints = 100;
         attackDamage = 30;
         rng = new Random();
@@ -17,7 +17,7 @@ public class Fighter {
     }
 
     public Fighter(String name1, int health1, int dmg1, int heal1) {
-        String name = name1;
+        name = name1;
         healthPoints = health1;
         attackDamage = dmg1;
         rng = new Random();
